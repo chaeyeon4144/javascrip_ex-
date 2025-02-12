@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>submit 제출 이벤트</title>
+    <style></style>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name">이름:</label>
+      <input id="name" type="text" />
+      <br />
+      <label for="email">이메일:</label>
+      <input id="email" type="text" />
+      <br />
+      <button type="submit">로그인</button>
+    </form>
+    <div id="output">
+      <!-- js출력 -->
+    </div>
+
+    <script>
+      const form = document.querySelector("#myForm");
+      const output = document.querySelector("#output");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        //alert("정보제출");
+        const nameE = document.querySelector("#name");
+        const nameValue = nameE.value;
+        //console.log(nameValue);
+        const email = document.querySelector("#email");
+        const emailValue = email.value;
+
+        output.innerHTML = `<p> 이름 : <strong>${nameValue}</strong> </p>
+
+        <p>이메일 : <strong>  ${emailValue}</strong> </p>
+        `;
+
+        //const output = document.querySelector("#output")
+      });
+    </script>
+  </body>
+</html>

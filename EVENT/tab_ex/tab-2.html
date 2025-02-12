@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메뉴 탭 버튼 예제</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      .menu {
+        width: 50%;
+        display: flex;
+        background-color: aqua;
+        margin: 50px auto;
+      }
+      .menu_item {
+        cursor: pointer;
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        background-color: #f0f0f0;
+      }
+      .menu_item:hover {
+        background-color: #ddd;
+      }
+      .menu_item.active {
+        background-color: #ddd;
+      }
+      .card-container {
+        width: 60%;
+        max-width: 600px;
+        min-width: 300px;
+        margin: auto;
+        background-color: aqua;
+      }
+      .card {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+      .card.active {
+        display: flex;
+        gap: 20px;
+      }
+      .card li {
+        flex: 1;
+      }
+      /* .card li * {
+        padding: 5px 0;
+        
+      } */
+      .card li img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 탭메뉴 -->
+    <div class="menu">
+      <div class="menu_item">메뉴 1</div>
+      <div class="menu_item">메뉴 2</div>
+      <div class="menu_item">메뉴 3</div>
+    </div>
+    <!-- 카드영역 -->
+
+    <div class="card-container">
+      <!-- 메뉴1 -->
+      <ul class="card active">
+        <li>
+          <img src="../images/KakaoTalk_20250212_113115657_01.png" alt="이미지" />
+          <h2>설명 1</h2>
+          <p>가격: 6,000원</p>
+        </li>
+        <li>
+          <img src="../images/KakaoTalk_20250212_113115657_02.png" alt="이미지" />
+          <h2>설명 1</h2>
+          <p>가격: 6,000원</p>
+        </li>
+        <li>
+          <img src="../images/KakaoTalk_20250212_113115657_03.png" alt="이미지" />
+          <h2>설명 1</h2>
+          <p>가격: 6,000원</p>
+        </li>
+      </ul>
+      <!-- 메뉴2 -->
+      <ul class="card">
+        <li>
+          <img src="../images/KakaoTalk_20250212_113115657_04.png" alt="이미지" />
+          <h2>설명 1</h2>
+          <p>가격: 6,000원</p>
+        </li>
+        <li>
+          <img src="../images/KakaoTalk_20250212_113115657_01.png" alt="이미지" />
+          <h2>설명 1</h2>
+          <p>가격: 6,000원</p>
+        </li>
+        <li>
+          <img src="../images/KakaoTalk_20250212_113115657_03.png" alt="이미지" />
+          <h2>설명 1</h2>
+          <p>가격: 6,000원</p>
+        </li>
+      </ul>
+
+      <!-- 메뉴3 -->
+      <ul class="card">
+        <li>
+          <img src="../images/KakaoTalk_20250212_113115657_02.png" alt="이미지" />
+          <h2>설명 1</h2>
+          <p>가격: 6,000원</p>
+        </li>
+        <li>
+          <img src="../images/KakaoTalk_20250212_113115657_04.png" alt="이미지" />
+          <h2>설명 1</h2>
+          <p>가격: 6,000원</p>
+        </li>
+        <li>
+          <img src="../images/KakaoTalk_20250212_113115657_01.png" alt="이미지" />
+          <h2>설명 1</h2>
+          <p>가격: 6,000원</p>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const menuItems = document.querySelectorAll(".menu_item");
+      const cards = document.querySelectorAll(".card");
+      menuItems[0].classList.add("active");
+      //console.log(menuitems);
+      menuItems.forEach(function (itemMenu, index) {
+        /*console.log(item);
+        console.log(index);*/
+        itemMenu.addEventListener("click", function () {
+          //console.log(this);
+          showCard(index);
+        });
+      });
+      //card 보이게 하는 함수
+      function showCard(index) {
+        //console.log(index);
+        // menuItems.forEach((item) => {
+        //   //console.log(item);
+        //   item.classList.remove("active");
+        // });
+        menuItems.forEach(function (item) {
+          item.classList.remove("active");
+        });
+        // cards.forEach((cardItem) => {
+        //   console.log(cardItem);
+        //   cardItem.classList.remove("active");
+        // });
+        cards.forEach(function (cardItem) {
+          console.log(cardItem);
+          cardItem.classList.remove("active");
+        });
+        // 카드가 active 활성화
+        cards[index].classList.add("active");
+        //메뉴아이템에 active 활성화
+        menuItems[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

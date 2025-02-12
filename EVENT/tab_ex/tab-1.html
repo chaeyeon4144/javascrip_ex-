@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>상세보기</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        list-style: none;
+      }
+      #item {
+        position: relative;
+        width: 500px;
+        margin: 100px auto;
+        padding: 15px 20px;
+      }
+      button {
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 5px;
+        border: 1px solid #ccc;
+        font-size: 13px;
+      }
+      .over {
+        position: absolute;
+        right: 100px;
+        top: 270px;
+      }
+      .detail {
+        width: 400px;
+        line-height: 1.8;
+        padding: 10px;
+        display: none;
+      }
+      .detail * {
+        margin: 20px 0;
+      }
+      #close {
+        display: block;
+        margin-left: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="item">
+      <img src="../images/KakaoTalk_20250212_113145126.jpg" alt="" />
+      <button class="over" id="open">상세설명 보기</button>
+      <!-- 상세 설명 -->
+      <div id="desc" class="detail">
+        <h4>등심붓꽃</h4>
+        <p>
+          북아메리카 원산으로 각지에서 관상초로 흔히 심고 있는 귀화식물이다. 길가나 잔디밭에서 흔히 볼 수 있다. 아주
+          작은 씨앗을 무수히 많이 가지고 있는데 바람을 이용해 씨앗들을 날려보내거나, 뿌리줄기를 통해 동일한 개체들을
+          많이 만들어 냄으로써 번식한다.
+        </p>
+        <button id="close">상세설명 닫기</button>
+      </div>
+    </div>
+    <script>
+      const open = document.querySelector("#open");
+      const desc = document.querySelector("#desc");
+      const close = document.querySelector("#close");
+
+      open.addEventListener("click", function () {
+        //alert("click")
+        desc.style.display = "block";
+        open.style.display = "none";
+      });
+      close.addEventListener("click", function () {
+        desc.style.display = "none";
+        open.style.display = "block";
+      });
+    </script>
+  </body>
+</html>
