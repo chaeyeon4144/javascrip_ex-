@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>addEventListner</title>
+  </head>
+  <body>
+    <button class="btn1">클릭</button>
+    <button class="btn2">클릭1</button>
+
+    <script>
+      const btnEl = document.querySelector(".btn1");
+      const btnEl2 = document.querySelector(".btn2");
+      //   btnEl.addEventListener("click", function () {
+      //     console.log("click");
+      //   });
+      //화살표 함수로 변경
+      //   btnEl.addEventListener ("click" , () => {
+      //       console.log("click");
+
+      //   })
+      const clickEvent = () => {
+        console.log("click");
+      };
+      btnEl.addEventListener("click", clickEvent);
+      btnEl2.addEventListener("click", clickEvent);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>click _txtcolor_</title>
+    <style>
+      .colorchange {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="btncolor">글자색 변경</button>
+    <p class="txtp">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum velit exercitationem hic earum, vel quibusdam
+      sapiente saepe eveniet sunt odio, recusandae dolore dolores obcaecati maiores officiis inventore nam consequuntur
+      accusantium?
+    </p>
+    <script>
+      //1.btncoloe를  변수에 저장하기
+      const btnColor = document.querySelector("#btncolor");
+      //console.log(btnColor);
+      //2.txtP를 변수에 저장하기
+
+      const txtP = document.querySelector(".txtp");
+      //btnColor.addEventListener("click", function () {
+      //txtP.style.color = "red";
+      //txtP.classList.toggle("colorchange");
+      //});
+      //램덤으로 글자색 변경하기
+      btnColor.addEventListener("click", function () {
+        const colors = ["red", "blue", "green", "pink", "skyblue", "yellow", "hotpink"];
+        //console.log(colors.length);
+
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        // console.log(Math.random() * colors.length);
+        //console.log(randomIndex);
+        const randomcolor = colors[randomIndex];
+        //console.log(randomcolor);
+        txtP.style.color = randomcolor;
+
+        //Math.random(); -  0과 1 사이에서 무작위 소수를 반환하는 코드
+        //Math.floor(); - 소수점 이하를 버리고 가장 가까운 정수로 내림한다.
+      });
+    </script>
+  </body>
+</html>

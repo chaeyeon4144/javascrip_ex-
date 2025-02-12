@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event object</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" />
+    </form>
+    <script>
+      const inputElement = document.querySelector("input");
+      inputElement.addEventListener("keydown", function (event) {
+        event.preventDefault()
+        console.log(event);
+        
+        console.log(`keyCode : ${event.keyCode}`);
+        console.log(`keyCode : ${event.ctrlKey}`);
+      });
+    </script>
+  </body>
+</html>
