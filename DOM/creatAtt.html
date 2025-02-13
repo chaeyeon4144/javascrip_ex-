@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>돔 속성 부여하기 연습</title>
+    <style>
+      .item4 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="list">
+      <li>item1</li>
+      <li>item2</li>
+      <li>item3</li>
+      
+    </ul>
+    <button id="addItemBtn">아이템 추가</button>
+    <script>
+      const addBtn = document.querySelector("#addItemBtn");
+      const list = document.querySelector("#list");
+      addBtn.addEventListener("click", function () {
+        //li태그 생성
+        const newItem = document.createElement("li");
+        console.log(newItem);
+        newItem.textContent = "item4";
+        list.appendChild(newItem);
+        //li태그안에 클래스명 추가
+        newItem.setAttribute("class", "item4");
+        //li태그안에 아이디명 추가
+        newItem.setAttribute("id", "item4");
+        //이미지태그 만들기
+        const newimg = document.createElement("img");
+        //console.log(newimg);
+        newimg.setAttribute("src" , "images/KakaoTalk_20250213_123653974.png");
+        newimg.setAttribute("alt", "빨간컵");
+        newimg.setAttribute("id", "redCup");
+        list.appendChild(newimg);
+      });
+    </script>
+  </body>
+</html>

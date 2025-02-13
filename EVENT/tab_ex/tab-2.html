@@ -17,16 +17,16 @@
       .menu {
         width: 50%;
         display: flex;
-        background-color: aqua;
+        background: linear-gradient(12deg, rgba(26, 117, 186, .3), transparent);
         margin: 50px auto;
       }
-      .menu_item {
+      /* .menu_item {
         cursor: pointer;
         flex: 1;
         text-align: center;
         padding: 10px;
         background-color: #f0f0f0;
-      }
+      } */
       .menu_item:hover {
         background-color: #ddd;
       }
@@ -59,9 +59,20 @@
       .card li img {
         width: 100%;
       }
+      .card_previw{
+        width: 500px;
+        height: 500px;
+        background-color: #8a76e3;
+        background: linear-gradient(12deg, rgba(26, 117, 186, .3), transparent);
+        
+
+      }
     </style>
   </head>
   <body>
+    <div class="card_previw">
+      색깔 표현
+    </div>
     <!-- 탭메뉴 -->
     <div class="menu">
       <div class="menu_item">메뉴 1</div>

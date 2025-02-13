@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>색 랜덤으로 바꾸기</title>
+  </head>
+  <body>
+    <button>색변경</button>
+    <script>
+      const button = document.querySelector("button");
+      //색 변경하는 함수
+      function random(number) {
+        return Math.floor(Math.random() * (number + 1));
+        //console.log(nmber);
+
+        //소수점아래는 다버리고 정수만
+      }
+      button.addEventListener("click", function () {
+        const randomCol = `rgb(${random(255)},${random(255)},${random(255)} )`;
+        //console.log(randomCol);
+        document.body.style.backgroundColor = randomCol;
+      });
+    </script>
+  </body>
+</html>
