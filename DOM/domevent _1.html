@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Event객체</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="images/KakaoTalk_20250214_094556721.jpg" alt="이미지" id="cover" />
+    </div>
+    <script>
+      const cover = document.querySelector("#cover");
+      cover.addEventListener("mouseover", function () {
+        //돔속성으로 이벤트 줄수있다
+        cover.src = "images/KakaoTalk_20250214_094556721_01.jpg";
+      });
+      cover.addEventListener("mouseout", function () {
+        cover.src = "images/KakaoTalk_20250214_094556721.jpg";
+      });
+    </script>
+  </body>
+</html>

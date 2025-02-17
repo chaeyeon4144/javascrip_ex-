@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Event객체</title>
+  </head>
+  <body>
+    <div class="container">
+      <img src="images/KakaoTalk_20250213_123653974.png" alt="cup" id="cup" />
+      <p class="display">
+        <!-- js로 출력 -->
+      </p>
+    </div>
+    <script>
+      const cup = document.querySelector("#cup");
+      cup.addEventListener("click", function (event) {
+        const display = document.querySelector(".display");
+        display.innerHTML = `
+            이벤트유형: ${event.type}
+            이벤트 발생위치(x) : ${event.pageX} <br>
+            이벤트 발생위치(y) : ${event.pageY}
+            이벤트 발생위치(y) : ${event.target.src}
+            `;
+        console.log(event.target);
+      });
+    </script>
+  </body>
+</html>
