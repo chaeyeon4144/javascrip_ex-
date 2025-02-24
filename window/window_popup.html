@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>윈도우에서 팝업창 띄우기(2-20)</title>
+  </head>
+  <body>
+    <h1>문서를 열면 팝업 창이 표시됩니다.</h1>
+    <script>
+      function openPppup() {
+        let newWindow = window.open("window.html", "팝업", "width=500 , height=500 , top=0 , left=0 ");
+        if (newWindow == null) {
+          alert("팝업이 차단되어 있습니다. 팝업차단을 해제해주세요");
+        }
+        newWindow.moveBy(200,200)
+      }
+      openPppup();
+    </script>
+  </body>
+</html>

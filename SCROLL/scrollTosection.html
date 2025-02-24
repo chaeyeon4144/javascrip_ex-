@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메뉴클릭시 해당 섹션이동</title>
+    <style>
+      section {
+        height: 100vh; /*화면 전체 높이 만큼의 섹션*/
+        padding: 20px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      nav > a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#" data-section="section1">section 1</a>
+      <a href="#" data-section="section2">section 2</a>
+      <a href="#" data-section="section3">section 3</a>
+    </nav>
+    <section id="section1">
+      <h2>section 1</h2>
+      <p>여기는 섹션 1입니다.</p>
+    </section>
+    <section id="section2">
+      <h2>section2</h2>
+      <p>여기는 섹션2입니다.</p>
+    </section>
+    <section id="section3">
+      <h2>section 3</h2>
+      <p>여기는 섹션 3입니다.</p>
+    </section>
+    <script>
+      //스크롤기능 함수
+      function scrollTosection(sectionId) {
+        //console.log(sectionId);
+
+        const section = document.getElementById(sectionId);
+        //console.log(section);
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll("nav a");
+        links.forEach(function (link) {
+          //console.log(link);
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            //console.log("click");
+            const sectionId = link.getAttribute("data-section");
+            //console.log(sectionId);
+            scrollTosection(sectionId);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

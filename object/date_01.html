@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date 내장객체 연습</title>
+  </head>
+  <body>
+    <script>
+      const products = [
+        { name: "노트북", date: new Date(2025, 1, 15) },
+        { name: "스마트폰", date: new Date(2025, 1, 16) },
+      ];
+      products.forEach(function (product) {
+        console.log(product);
+        console.log(`이름: ${product.name} 등록일: ${product.date.toLocaleDateString()}`);
+      });
+    </script>
+  </body>
+</html>

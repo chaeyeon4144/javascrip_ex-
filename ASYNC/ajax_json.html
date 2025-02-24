@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="person-list">
+      <!-- js 출력 -->
+    </div>
+    <script>
+      //json 데이터 가져오는 함수
+      function getPeople() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("get", "ajax.json", true);
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            const people = JSON.parse(xhr.responseText);
+            displayPeople(people);
+          }
+        };
+        xhr.send();
+      }
+      // html에 데이터를 추가하는 함수
+      function displayPeople(people) {
+        console.log(people);
+        const personlist = document.querySelector(".person-list");
+        personlist.innerHTML = ""; //기존 내용은 초기화
+        people.forEach((person) => {
+          //console.log(person);
+          const newDiv = document.createElement("div");
+          newDiv.className = "person-item";
+          newDiv.innerHTML = `
+          <h2>이름:${person.name}</h2>
+       <p>Age:${person.age}</p>
+       <p>Student : ${person.isStudent ? "yes" : "no"} </p>
+          
+          `;
+          personlist.appendChild(newDiv);
+        });
+      }
+
+      getPeople();
+    </script>
+  </body>
+</html>
