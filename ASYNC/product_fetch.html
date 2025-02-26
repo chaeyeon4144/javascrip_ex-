@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>쇼핑몰 상퓸 목록</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        text-align: center;
+      }
+      #products {
+        margin: 100px auto;
+        display: flex;
+        width: 70%;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .product {
+        width: calc((100% - 30px) / 4);
+        /* margin-bottom: 15px; */
+        border: 1px solid #ddd;
+      }
+      .product img {
+        width: 100px;
+      }
+      .loading {
+        color: gray;
+        font-style: italic;
+      }
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎉 쇼핑몰 상품 목록</h1>
+    <div id="status" class="loading">상품을 불러오는 중...</div>
+    <div id="products">
+      <!-- js -->
+    </div>
+    <script>
+      //로딩 상태 확인
+      function showStatus(message, isError = false) {
+        const statusElement = document.getElementById("status");
+        //console.log(message);  //상품을 불러오는 중...
+        //console.log(isError);
+        statusElement.textContent = message;
+        statusElement.className = isError ? "error" : "loading";
+        console.log();
+        
+      }
+
+      //상품 불러오기
+      function displayProducts(products) {
+        //보여지는 함수
+        const productsContainer = document.getElementById("products");
+        productsContainer.innerHTML = products
+          //배열이기때문에 map함수 사용 안에는 콜백 함수
+          .map(
+            (product) => `
+            <div class="product">
+            <h3>${product.title}</h3>
+            <p>💰가격:${product.price}</p>
+            <img src="${product.image}" alt="${product.title}">
+         </div>
+            
+            
+            `
+          )
+          .join("");
+        //빈배열 콤마 없애기위해서
+      }
+      //데이터로 상품 불러오기
+      function loadProducts(products) {
+        // 데이터가 완벽하게 가져오기전 불러져야함으로 이위치에 함수 return
+        showStatus("상품을 불러오는 중...");
+        fetch("https://fakestoreapi.com/products")
+          .then((response) => {
+            if (!response.ok) throw new Error("서버 응답 실패");
+            return response.json();
+          })
+          //정보가 담긴함수
+          .then((products) => {
+            console.log(products);
+            //정보가 담긴함수 안 에서 데이터받을 함수 실행
+            displayProducts(products);
+            showStatus(`✔ 상품목록 로드 완료`)
+          })
+          .catch((error) => {
+            showStatus(`❌ ${error.message}` , true)
+          });
+      }
+      loadProducts();
+      //
+    </script>
+  </body>
+</html>
